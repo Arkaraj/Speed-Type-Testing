@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="word.png" type="image/png">
+    <title>Type Speed Testing</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
+        *{
+            padding: 0;margin: 0;box-sizing: border-box;
+            font-family:"Roboto",sans-serif;
+            font-size: large;
+        }
+        body{
+            margin: 35px;
+            display: flex;
+            flex-direction: column;
+            background: wheat;
+        }
+        .left{
+            margin: 10px;
+            padding-left: 90%;
+        }
+        #count{
+            padding:2px;
+            margin: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="left">
+        <h4>Counter:</h4>
+        <span id="change">1</span>:<span id="show">00</span>
+    </div>
+    <p>Living valley had silent eat merits esteem bed. In last an or went wise as left. Visited civilly am demesne so colonel he calling. So unreserved do interested increasing sentiments. Vanity day giving points within six not law. Few impression difficulty his use has comparison decisively. 
+    Behind sooner dining so window excuse he summer. Breakfast met certainty and fulfilled propriety led. Waited get either are wooded little her. Contrasted unreserved as mr particular collecting it everything as indulgence. Seems ask meant merry could put. Age old begin had boy noisy table front whole given. 
+    </p>
+    <textarea name="" id="count" cols="30" rows="10"></textarea>
+    <p>Max Wpm: 94</p>
+    <p>Max charcter: 595</p>
+</body>
+<script>
+    var seconds=60;
+    var timer;
+    var ct,tc;
+    var ch = document.getElementById("change");
+    var str = document.getElementById("show");
+
+    function myFunction() {
+        str.innerHTML = 60;
+        if(seconds < 60) {
+            document.getElementById("show").innerHTML = seconds;
+        }
+            if (seconds > 0 ) {
+                seconds--;
+            } else {
+                clearInterval(timer);
+                alert("You have " + ct +" Wpm");
+            }
+        }
+    document.getElementById("count").onkeypress = function() {
+        ch.innerHTML = 0;
+        tc = this.value.split(" ");
+        ct = tc.length;
+        if(!timer) {
+            timer = window.setInterval(myFunction, 1000);
+        }
+    } 
+</script>
+</html>
